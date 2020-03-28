@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import ReactDOM from 'react-dom'
-import React, { Suspense, useState, useCallback, useEffect, useRef, useMemo } from 'react'
+import React, { Suspense, useState, useCallback, useEffect, useRef/*, useMemo*/ } from 'react'
 import { Canvas, useFrame, useThree } from 'react-three-fiber'
 import lerp from 'lerp'
 import Text from './Text'
@@ -9,6 +9,7 @@ import Sparks from './Sparks'
 import Particles from './Particles'
 import './styles.css'
 
+/*
 function Ellipse(props) {
   const geometry = useMemo(() => {
     const curve = new THREE.EllipseCurve(0, 0, 10, 3, 0, 2 * Math.PI, false, 0)
@@ -35,6 +36,7 @@ function ReactAtom(props) {
     </group>
   )
 }
+*/
 
 function Number({ mouse, hover }) {
   const ref = useRef()

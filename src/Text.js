@@ -1,12 +1,12 @@
-import * as THREE from 'three'
-import React, { forwardRef, useMemo } from 'react'
-import { useLoader, useUpdate } from 'react-three-fiber'
+import * as THREE from 'three';
+import React, { forwardRef, useMemo } from 'react';
+import { useLoader, useUpdate } from 'react-three-fiber';
 
 const Text = forwardRef(({ children, vAlign = 'center', hAlign = 'center', size = 1, color = '#000000', fontSize = 40, depth = 15, ...props }, ref) => {
-  //const font = useLoader(THREE.FontLoader, '/bold.blob')
-  const font = useLoader(THREE.FontLoader, '/fonts/RobotoRegular.json')
-  //const config = useMemo(() => ({ font, size: 40, height: 50 }), [font])
-  const config = useMemo(() => ({ font, size: fontSize, height: depth || 50 }), [font])
+  //const font = useLoader(THREE.FontLoader, '/bold.blob');
+  const font = useLoader(THREE.FontLoader, '/fonts/RobotoRegular.json');
+  //const config = useMemo(() => ({ font, size: 40, height: 50 }), [font]);
+  const config = useMemo(() => ({ font, size: fontSize, height: depth || 50 }), [font, depth, fontSize]);
   const mesh = useUpdate(
     self => {
       const size = new THREE.Vector3()
@@ -16,7 +16,7 @@ const Text = forwardRef(({ children, vAlign = 'center', hAlign = 'center', size 
       self.position.y = vAlign === 'center' ? -size.y / 2 : vAlign === 'top' ? 0 : -size.y
     },
     [children]
-  )
+  );
   return (
     <group ref={ref} {...props} scale={[0.1 * size, 0.1 * size, 0.1]}>
       <mesh ref={mesh}>
@@ -25,6 +25,6 @@ const Text = forwardRef(({ children, vAlign = 'center', hAlign = 'center', size 
       </mesh>
     </group>
   )
-})
+});
 
-export default Text
+export default Text;
